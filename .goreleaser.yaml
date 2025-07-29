@@ -1,0 +1,16 @@
+version: 2
+
+before:
+  hooks:
+    # You may remove this if you don't use go modules.
+    - go mod tidy
+    # you may remove this if you don't need go generate
+    - go generate ./...
+
+builds:
+  - id: tools-screen-shot
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - windows
+
